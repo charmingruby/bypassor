@@ -7,20 +7,29 @@
   "targets": {
     "build": {
       "executor": "nx:run-commands",
+      "dependsOn": [
+        "generate-types"
+      ],
       "options": {
         "command": "webpack-cli build",
-        "args": ["node-env=production"]
+        "args": [
+          "node-env=production"
+        ]
       },
       "configurations": {
         "development": {
-          "args": ["node-env=development"]
+          "args": [
+            "node-env=development"
+          ]
         }
       }
     },
     "serve": {
       "executor": "@nx/js:node",
       "defaultConfiguration": "development",
-      "dependsOn": ["build"],
+      "dependsOn": [
+        "build"
+      ],
       "options": {
         "buildTarget": "bypassor-auth:build",
         "runBuildTargetDependencies": false
@@ -37,6 +46,18 @@
     "test": {
       "options": {
         "passWithNoTests": true
+      }
+    },
+    "generate-types": {
+      "command": "prisma generate",
+      "options": {
+        "cwd": "apps/bypassor-auth"
+      }
+    },
+    "migrate-prisma": {
+      "command": "prisma migrate dev",
+      "options": {
+        "cwd": "apps/bypassor-auth"
       }
     }
   }
