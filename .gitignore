@@ -43,3 +43,9 @@ Thumbs.db
 
 # Editor
 .vscode
+
+# Docker data
+.docker
+
+# Environment variables
+.env

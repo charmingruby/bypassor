@@ -1,5 +1,5 @@
 export default {
-  displayName: 'bypassor-auth-e2e',
+  displayName: 'auth-e2e',
   preset: '../../jest.preset.js',
   globalSetup: '<rootDir>/src/support/global-setup.ts',
   globalTeardown: '<rootDir>/src/support/global-teardown.ts',
@@ -14,5 +14,5 @@ export default {
     ],
   },
   moduleFileExtensions: ['ts', 'js', 'html'],
-  coverageDirectory: '../../coverage/bypassor-auth-e2e',
+  coverageDirectory: '../../coverage/auth-e2e',
 };

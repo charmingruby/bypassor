@@ -1,7 +1,7 @@
 {
-  "name": "bypassor-auth",
+  "name": "auth",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/bypassor-auth/src",
+  "sourceRoot": "apps/auth/src",
   "projectType": "application",
   "tags": [],
   "targets": {
@@ -31,15 +31,15 @@
         "build"
       ],
       "options": {
-        "buildTarget": "bypassor-auth:build",
+        "buildTarget": "auth:build",
         "runBuildTargetDependencies": false
       },
       "configurations": {
         "development": {
-          "buildTarget": "bypassor-auth:build:development"
+          "buildTarget": "auth:build:development"
         },
         "production": {
-          "buildTarget": "bypassor-auth:build:production"
+          "buildTarget": "auth:build:production"
         }
       }
     },
@@ -51,13 +51,13 @@
     "generate-types": {
       "command": "prisma generate",
       "options": {
-        "cwd": "apps/bypassor-auth"
+        "cwd": "apps/auth"
       }
     },
     "migrate-prisma": {
       "command": "prisma migrate dev",
       "options": {
-        "cwd": "apps/bypassor-auth"
+        "cwd": "apps/auth"
       }
     }
   }
