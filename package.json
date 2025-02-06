@@ -24,6 +24,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.8.0",
+    "@nestjs/config": "^4.0.0",
     "@nestjs/schematics": "^10.0.1",
     "@nestjs/testing": "^10.0.2",
     "@nx/eslint": "20.4.0",
