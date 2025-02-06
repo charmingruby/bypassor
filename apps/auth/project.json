@@ -7,29 +7,21 @@
   "targets": {
     "build": {
       "executor": "nx:run-commands",
-      "dependsOn": [
-        "generate-types"
-      ],
+      "dependsOn": ["generate-types"],
       "options": {
         "command": "webpack-cli build",
-        "args": [
-          "node-env=production"
-        ]
+        "args": ["node-env=production"]
       },
       "configurations": {
         "development": {
-          "args": [
-            "node-env=development"
-          ]
+          "args": ["node-env=development"]
         }
       }
     },
     "serve": {
       "executor": "@nx/js:node",
       "defaultConfiguration": "development",
-      "dependsOn": [
-        "build"
-      ],
+      "dependsOn": ["build", "generate-types"],
       "options": {
         "buildTarget": "auth:build",
         "runBuildTargetDependencies": false
@@ -44,6 +36,7 @@
       }
     },
     "test": {
+      "dependsOn": ["generate-types"],
       "options": {
         "passWithNoTests": true
       }
