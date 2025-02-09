@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from '../../../../shared/database/prisma/prisma.service';
-import { UsersService } from '../../../users/core/service/users.service';
+import { UsersService } from '../../../users/core/services/users.service';
 import { compare } from 'bcryptjs';
 import { InvalidCredentialsException } from '../exceptions/invalid-credentials.exception';
 

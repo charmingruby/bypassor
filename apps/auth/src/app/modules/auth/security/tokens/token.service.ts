@@ -1,10 +1,14 @@
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { JwtService } from '@nestjs/jwt';
-import { Response } from 'express';
 
 export interface TokenPayload {
   userId: number;
+}
+
+interface TokenGenerationResult {
+  accessToken: string;
+  expires: Date;
 }
 
 @Injectable()
@@ -14,7 +18,7 @@ export class TokenService {
     private readonly jwtService: JwtService
   ) {}
 
-  generate(payload: TokenPayload, res: Response) {
+  generate(payload: TokenPayload): TokenGenerationResult {
     const expires = new Date();
     expires.setMilliseconds(
       expires.getTime() +
@@ -23,10 +27,9 @@ export class TokenService {
 
     const accessToken = this.jwtService.sign(payload);
 
-    res.cookie('Authentication', accessToken, {
-      httpOnly: true,
-      secure: this.configService.get('NODE_ENV') === 'production',
+    return {
+      accessToken,
       expires,
-    });
+    };
   }
 }

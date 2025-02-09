@@ -5,7 +5,7 @@ import { PrismaModule } from '../../shared/database/prisma/prisma.module';
 import { JwtModule } from '@nestjs/jwt';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { UsersModule } from '../users/users.module';
-import { TokenService } from './http/shared/tokens/token.service';
+import { TokenService } from './security/tokens/token.service';
 
 @Module({
   imports: [
